@@ -11,4 +11,8 @@ if(!content||!title){
 
 res.status(201).json("note posted!")
 };
-module.exports={postNote}
+const getNotes = async (req, res) => {
+    const notes = await note.find();
+    res.json(notes);
+};
+module.exports={postNote,getNotes}
